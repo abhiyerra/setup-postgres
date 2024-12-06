@@ -128,7 +128,7 @@ if (isMac()) {
 
   if (postgresVersion != defaultVersion) {
     // remove previous cluster so port 5432 is used
-    run(`sudo pg_dropcluster ${defaultVersion} main`);
+    //run(`sudo pg_dropcluster ${defaultVersion} main`);
 
     // install new version
     run(`sudo apt-get update -o Dir::Etc::sourcelist="sources.list.d/pgdg.list" -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0"`);
@@ -150,7 +150,7 @@ if (isMac()) {
   run(`sudo systemctl start postgresql@${postgresVersion}-main`);
 
   // add user
-  run(`sudo -iu postgres createuser -s $USER`);
+  //run(`sudo -iu postgres createuser -s $USER`);
 
   bin = `/usr/lib/postgresql/${postgresVersion}/bin`;
 }
